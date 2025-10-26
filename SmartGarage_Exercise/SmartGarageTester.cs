@@ -6,86 +6,23 @@ using System.Threading.Tasks;
 
 namespace SmartGarage_Exercise
 {
-	/// <summary>
-	/// מחלקה סטטית המכילה פונקציות לבדיקת היכולות של המוסך.
-	/// המטרה שלכם היא להחליף את הפונקציות המסורבלות בפונקציות פולימורפיות.
-	/// </summary>
 	public static class SmartGarageTester
 	{
-		// --- פונקציות קיימות ומסורבלות (מכילות קוד מלא אך בעייתי) ---
-		// --- חלק ממשימתכם הוא למחוק את הפונקציות הבאות ---
-
-		/// <summary>
-		/// (פונקציה ישנה למחיקה) מתדלק רק מערך של מכוניות.
-		/// </summary>
-		public static void RefuelAllCars(Car[] cars)
-		{
-			Console.WriteLine("\n--- Commencing car refueling cycle ---");
-			foreach (var car in cars)
-			{
-				car.Refuel();
-			}
-		}
-
-		/// <summary>
-		/// (פונקציה ישנה למחיקה) טוענת רק מערך של רובוטים.
-		/// </summary>
-		public static void ChargeAllRobots(CleaningRobot[] robots)
-		{
-			Console.WriteLine("\n--- Commencing robot charging cycle ---");
-			foreach (var robot in robots)
-			{
-				robot.ChargeBattery();
-			}
-		}
-
-		/// <summary>
-		/// (פונקציה ישנה למחיקה) מזיזה ימינה 3 סוגי מערכים נפרדים.
-		/// </summary>
-		public static void MoveAllRight(Car[] cars, Motorcycle[] bikes, CleaningRobot[] robots)
-		{
-			Console.WriteLine("\n--- Moving all units right ---");
-			foreach (var car in cars)
-			{
-				car.MoveRight();
-			}
-			foreach (var bike in bikes)
-			{
-				bike.MoveRight();
-			}
-			foreach (var robot in robots)
-			{
-				robot.MoveRight();
-			}
-		}
-
-		// --- פונקציות יעד חדשות (מכילות רק חתימה והערות) ---
-		// --- עליכם לגרום לקוד הבא (שנמצא בהערה) לעבוד ---
-
-		/*
-        /// <summary>
-        /// (פונקציה למשימה ד') בודקת מערך פולימורפי של כלי רכב.
-        /// הפונקציה הזו מסופקת לכם במלואה כדוגמה.
-        /// </summary>
-        /// <param name="allVehicles">מערך של כלי רכב (Vehicle).</param>
-        public static void TestAllVehicles(Vehicle[] allVehicles)
+        public static void TestAllVehicles(Vehicles[] allVehicles)
         {
             Console.WriteLine("\n--- Commencing Vehicle diagnostics ---");
             foreach (var v in allVehicles)
             {
-                // קריאה לפעולת בסיס
                 Console.WriteLine($"-- Testing {v.ModelName} --");
                 
-                // קריאה פולימורפית לפעולה אבסטרקטית!
                 v.Drive(); 
                 
-                // קריאה לפעולה רגילה מהבסיס
                 v.Refuel(); 
             }
         }
-        */
+        
 
-		/*
+		
         // -----------------------------------------------------------------
         // --- משימת האתגר המרכזית (מימוש ע"י התלמידים) ---
         // -----------------------------------------------------------------
@@ -114,7 +51,7 @@ namespace SmartGarage_Exercise
         /// ומפעילה טעינה רק על אלו שגם נטענים (IChargeable).
         /// </summary>
         /// <param name="movables">מערך של אובייקטים המממשים IMovable.</param>
-        public static void TestMovablesAndChargeables(IMovable[] movables)
+        public static void TestMovablesAndChargeables(IMoveleftable[] movables)
         {
             Console.WriteLine("\n--- Commencing Movable/Chargeable test ---");
 
@@ -123,7 +60,17 @@ namespace SmartGarage_Exercise
 
             Console.WriteLine("--- Movable/Chargeable test complete ---");
         }
-        */
-	}
+
+        public static void TestMovablesAndChargeables(IMoverightable[] movables)
+        {
+            Console.WriteLine("\n--- Commencing Movable/Chargeable test ---");
+
+            // <-- התלמידים צריכים לממש את הלוגיקה כאן -->
+
+
+            Console.WriteLine("--- Movable/Chargeable test complete ---");
+        }
+
+    }
 
 }
