@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartGarage_Exercise
 {
-    internal interface IMoverightable
+    internal interface IMoverightable : IMovable
     {
         public void MoveRight();
     }

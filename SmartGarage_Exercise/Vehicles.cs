@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartGarage_Exercise
 {
-    internal abstract class Vehicles : IDriveable, IMoveleftable, IMoverightable, IChargeable
+    internal abstract class Vehicles : IDriveable, IChargeable, IMoveleftable, IMoverightable
     {
         public string name { get; set; }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartGarage_Exercise;
 	
-		internal abstract class Car : Vehicles, IDriveable, IMoveleftable, IMoverightable, IChargeable
+		internal abstract class Car : Vehicles, IDriveable, IChargeable, IMoveleftable, IMoverightable
 		{
 
 			public int FuelPercentage

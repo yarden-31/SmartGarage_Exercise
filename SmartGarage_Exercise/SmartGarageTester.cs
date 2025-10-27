@@ -51,21 +51,27 @@ namespace SmartGarage_Exercise
         /// ומפעילה טעינה רק על אלו שגם נטענים (IChargeable).
         /// </summary>
         /// <param name="movables">מערך של אובייקטים המממשים IMovable.</param>
-        public static void TestMovablesAndChargeables(IMoveleftable[] movables)
+        public static void TestMovablesAndChargeables(IMovable[] movables)
         {
             Console.WriteLine("\n--- Commencing Movable/Chargeable test ---");
 
-            // <-- התלמידים צריכים לממש את הלוגיקה כאן -->
-            
+            foreach (var item in movables)
+            {
+                item.MoveLeft();
+                if (item is IChargeable chargeable)
+                {
+                    chargeable.ChargeBattery();
+                }
+            }
 
-            Console.WriteLine("--- Movable/Chargeable test complete ---");
-        }
-
-        public static void TestMovablesAndChargeables(IMoverightable[] movables)
-        {
-            Console.WriteLine("\n--- Commencing Movable/Chargeable test ---");
-
-            // <-- התלמידים צריכים לממש את הלוגיקה כאן -->
+            foreach (var item in movables)
+            {
+                item.MoveRight();
+                if (item is IChargeable chargeable)
+                {
+                    chargeable.ChargeBattery();
+                }
+            }
 
 
             Console.WriteLine("--- Movable/Chargeable test complete ---");
