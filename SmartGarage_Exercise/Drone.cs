@@ -6,38 +6,38 @@ using System.Threading.Tasks;
 
 namespace SmartGarage_Exercise
 {
-    internal abstract class Drone : IMoveleftable, IMoverightable
+    internal abstract class Drone : ElectricVehicle, IVerticalMovable
     {
-        public int BatteryPercentage
+
+        public int Velocity
         {
-            get; private set;
+            get; set;
         }
 
         //---------------------------------------------------
 
-        public Drone(int battery)
+        public Drone(string model, int battery) : base(model)
         {
-            BatteryPercentage = Math.Clamp(battery, 0, 100);
         }
 
         //---------------------------------------------------
 
-        public void Fly()
+        private void Fly()
         {
-            if (BatteryPercentage > 15)
-            {
-                BatteryPercentage -= 15;
-                Console.WriteLine($"The drone is fyling. Battery left: {BatteryPercentage}%");
-            }
-            else
-            {
-                Console.WriteLine($"The drone cannot fly. Battery low.");
-            }
+            MoveUp();
+            Console.WriteLine(  "drone moves up");
         }
 
         //---------------------------------------------------
 
-        public override void Moveleft()
+        public override void Drive()
+        {
+            Fly();
+        }
+
+        //---------------------------------------------------
+
+        public override void MoveLeft()
         {
             Console.WriteLine($"Drone moves left.");
         }
@@ -47,6 +47,22 @@ namespace SmartGarage_Exercise
         public override void MoveRight()
         {
             Console.WriteLine($"Drone moves right.");
+        }
+
+        //---------------------------------------------------
+
+        public void MoveUp()
+        {
+            Console.WriteLine($"Drone moves up.");
+            Velocity--;
+        }
+
+        //---------------------------------------------------
+
+        public void MoveDown()
+        {
+            Console.WriteLine($"Drone moves down.");
+            Velocity++;
         }
     }
 }

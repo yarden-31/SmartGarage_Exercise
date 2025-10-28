@@ -8,74 +8,81 @@ namespace SmartGarage_Exercise
 {
 	public static class SmartGarageTester
 	{
-        public static void TestAllVehicles(Vehicles[] allVehicles)
+
+        public static void MoveAllRight(IHorizintalMovable[] movingThings)
+        {
+            Console.WriteLine("\n--- Moving all vehicles to the right ---");
+            {   
+                foreach (var item in movingThings)
+                {
+                    item.MoveRight();
+                }
+            }
+        }
+
+        //---------------------------------------------------
+
+        public static void MoveAllLeft(IHorizintalMovable[] movingThings)
+        {
+            Console.WriteLine("\n--- Moving all vehicles to the right ---");
+            {
+                foreach (var item in movingThings)
+                {
+                    item.MoveLeft();
+                }
+            }
+        }
+
+        //---------------------------------------------------
+
+        public static void TestAllVehicles(Vehicle[] allVehicles)
         {
             Console.WriteLine("\n--- Commencing Vehicle diagnostics ---");
             foreach (var v in allVehicles)
             {
                 Console.WriteLine($"-- Testing {v.ModelName} --");
                 
-                v.Drive(); 
-                
-                v.Refuel(); 
+                v.Drive();
+
+                if (v is FuelVehicle vehicle)
+                {
+                    vehicle.Refuel();
+                }
             }
         }
-        
 
-		
-        // -----------------------------------------------------------------
-        // --- משימת האתגר המרכזית (מימוש ע"י התלמידים) ---
-        // -----------------------------------------------------------------
-        //
-        // המטרה: 
-        // לממש פונקציה המדגימה את הכוח של ממשקים מרובים.
-        //
-        // קלט: 
-        // הפונקציה מקבלת מערך יחיד מסוג IMovable (ממשק X).
-        //
-        // דרישות מימוש (ה"מה", לא ה"איך"):
-        // הפונקציה צריכה לעבור בלולאה על *כל* האיברים במערך 'movables'.
-        // 1. עבור *כל* איבר במערך, יש להפעיל את הפעולה MoveRight() שלו. 
-        //    (זה בטוח לביצוע, כי אנו יודעים שכל איבר במערך *חייב* לממש IMovable).
-        //
-        // 2. *בנוסף*, במהלך הלולאה, עליכם לזהות *רק* את האיברים 
-        //    ש"במקרה" מממשים *גם* את ממשק IChargeable (ממשק Y).
-        //
-        // 3. על האיברים שזיהיתם בסעיף 2 (ואך ורק עליהם), 
-        //    יש להפעיל את הפעולה ChargeBattery().
-        //
-        // (רמז: חישבו כיצד לבדוק אם אובייקט מסוים מממש ממשק נוסף בזמן ריצה)
+        //---------------------------------------------------
 
-        /// <summary>
-        /// (פונקציה למשימה ד') בודקת מערך של אובייקטים זזים (IMovable)
-        /// ומפעילה טעינה רק על אלו שגם נטענים (IChargeable).
-        /// </summary>
-        /// <param name="movables">מערך של אובייקטים המממשים IMovable.</param>
-        public static void TestMovablesAndChargeables(IMovable[] movables)
+        public static void ChargeMoving(IChargeable[] moving)
         {
-            Console.WriteLine("\n--- Commencing Movable/Chargeable test ---");
-
-            foreach (var item in movables)
+            Console.WriteLine("\n--- Commencing Charging diagnostics ---");
+            foreach (var item in moving)
             {
-                item.MoveLeft();
-                if (item is IChargeable chargeable)
+                if (item is IChargeable)
                 {
-                    chargeable.ChargeBattery();
+                    ((IChargeable)item).ChargeBattery();
                 }
             }
-
-            foreach (var item in movables)
-            {
-                item.MoveRight();
-                if (item is IChargeable chargeable)
-                {
-                    chargeable.ChargeBattery();
-                }
-            }
-
-
-            Console.WriteLine("--- Movable/Chargeable test complete ---");
         }
+
+        internal static void RefuelAllCars(Car[] carFleet)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void ChargeAllRobots(CleaningRobot[] robotFleet)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void MoveAllRight(Car[] carFleet, Motorcycle[] bikeFleet, CleaningRobot[] robotFleet)
+        {
+            throw new NotImplementedException();
+        }
+
+        //---------------------------------------------------
+
+
 
     }
 

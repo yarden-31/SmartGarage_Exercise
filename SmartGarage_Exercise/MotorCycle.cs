@@ -6,19 +6,10 @@ using System.Threading.Tasks;
 
 namespace SmartGarage_Exercise
 {
-	internal abstract class Motorcycle : Vehicles, IDriveable, IMoveleftable, IMoverightable, IChargeable
+	public class Motorcycle : FuelVehicle, IDriveable, IHorizintalMovable
     {
-		public int FuelPercentage
-		{
-			get; private set;
-		}
-
-        //---------------------------------------------------
-
-        public Motorcycle(string model, int fuel) : base(model)
+        public Motorcycle(string model, int fuel) : base(model, fuel)
         {
-			ModelName = model;
-			FuelPercentage = Math.Clamp(fuel, 0, 100);
 		}
 
         //---------------------------------------------------
@@ -41,8 +32,8 @@ namespace SmartGarage_Exercise
         public override void Refuel()
 		{
 			Console.WriteLine($"Refueling {ModelName}...");
-			FuelPercentage = 100;
-		}
+			base.Refuel();
+        }
 
         //---------------------------------------------------
 

@@ -5,21 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SmartGarage_Exercise;
-	
-		internal abstract class Car : Vehicles, IDriveable, IChargeable, IMoveleftable, IMoverightable
-		{
 
-			public int FuelPercentage
+		public class Car : FuelVehicle, IDriveable, IHorizintalMovable
+{
+			public Car(string model, int fuel) : base(model, fuel)
 			{
-				get; private set;
-			}
-
-			//---------------------------------------------------
-
-			public Car(string model, int fuel) : base(model)
-			{
-				ModelName = model;
-				FuelPercentage = Math.Clamp(fuel, 0, 100);
 			}
 	
 			//---------------------------------------------------
@@ -42,12 +32,12 @@ namespace SmartGarage_Exercise;
 			public override void Refuel()
 			{
 				Console.WriteLine($"Refueling {ModelName}...");
-				FuelPercentage = 100;
+				base.Refuel();
 			}
 
 			//---------------------------------------------------
 
-			public override void Moveleft()
+			public override void MoveLeft()
 			{
 				Console.WriteLine($"Car {ModelName} turns left.");
 			}
@@ -58,6 +48,7 @@ namespace SmartGarage_Exercise;
 			{
 				Console.WriteLine($"Car {ModelName} turns right.");
 			}
+
 		}
 
 	

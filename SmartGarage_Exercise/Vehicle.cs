@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartGarage_Exercise
 {
-    internal abstract class Vehicles : IDriveable, IChargeable, IMoveleftable, IMoverightable, IMovable
+    public abstract class Vehicle : IHorizintalMovable
     {
         public string name { get; set; }
 
@@ -19,25 +19,15 @@ namespace SmartGarage_Exercise
 
         //---------------------------------------------------
 
-        public Vehicles(string name)
+        public Vehicle(string model)
         {
-            this.name = name;
+            ModelName = model;
         }
 
         //---------------------------------------------------
 
-        public abstract void ChargeBattery();]
-
         public abstract void Drive();
-
-        public abstract void Move();
-
-        public abstract void Moveleft();
-
         public abstract void MoveRight();
-
-        public abstract void Refuel();
-
-
+        public abstract void MoveLeft();
     }
 }

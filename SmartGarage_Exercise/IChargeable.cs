@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace SmartGarage_Exercise
 {
-    internal interface IChargeable
+    public interface IChargeable
     {
         public void ChargeBattery();
+
     }
 }
